@@ -29,7 +29,8 @@ jobs:
     - name: Copy build file
       run: cp win64\build2.bat win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\build2.bat
     - name: Run build file
-      run: cd win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\;dir;build2.bat
+      shell: cmd
+      run: cd win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\;dir;.\build2.bat
     - name: Update Automatic Release
       uses: marvinpinto/action-automatic-releases@latest
       with:
