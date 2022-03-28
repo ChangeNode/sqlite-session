@@ -22,6 +22,10 @@ Note that the build2.bat generates a sqlite3session.dll to avoid conflicting wit
 
 ## Verify
 
+The exports can be verified via at the command-line with:
+
+	dumpbin /exports sqlite3session.dll
+
 The DLL Export Viewer utility can be used to verify that the dll has been built correctly and that it contains the proper function exports (in particular, the session related extensions).
 
 http://www.nirsoft.net/utils/dll_export_viewer.html
