@@ -44,5 +44,5 @@ jobs:
         automatic_release_tag: "Windows-latest"
         prerelease: true
         title: "Windows Development Build"
-        files: win64/target/sqlite-amalgamation/sqlite3session.dll
+        files: win64/target/sqlite-amalgamation/sqlite-amalgamation-3380200/sqlite3session.dll
         
