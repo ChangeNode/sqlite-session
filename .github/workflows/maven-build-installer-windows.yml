@@ -1,0 +1,40 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Build Windows Library
+
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Check Out
+      uses: actions/checkout@v2
+    - name: Decompress Amalgamation
+      uses: DuckSoft/extract-7z-action@v1.0
+      with:
+        pathSource: sqlite-amalgamation.zip
+        pathTarget: ./win64/target/sqlite-amalgamation/
+    - name: Decompress Amalgamation
+      uses: DuckSoft/extract-7z-action@v1.0
+      with:
+        pathSource: sqlite-autoconf.tar.gz
+        pathTarget: ./win64/target/sqlite-autoconf/
+    - name: Copy build file
+      run: cp win64/build2.bat win64/target/sqlite-amalgamation/build2.bat
+    - name: Run build file
+      run: win64/target/sqlite-amalgamation/build2.bat
+    - name: Update Automatic Release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN}}"
+        automatic_release_tag: "Windows-latest"
+        prerelease: true
+        title: "Windows Development Build"
+        files: win64/target/sqlite-amalgamation/sqlite3session.dll
