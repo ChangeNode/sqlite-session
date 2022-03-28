@@ -24,6 +24,8 @@ jobs:
       with:
         pathSource: sqlite-autoconf.tar.gz
         pathTarget: ./win64/target/sqlite-autoconf/
+    - name: Setup Visual C++ Compiler
+      uses: ilammy/msvc-dev-cmd@v1
     - name: Copy build file
       run: cp win64/build2.bat win64/target/sqlite-amalgamation/build2.bat
     - name: Run build file
