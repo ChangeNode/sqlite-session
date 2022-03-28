@@ -31,8 +31,12 @@ jobs:
     - name: Run build file
       shell: cmd
       run: cd win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\
+    - name: Run build file
+      shell: cmd
       run: dir
-      run: .\build2.bat
+    - name: Run build file
+      shell: cmd
+      run: win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\build2.bat
     - name: Update Automatic Release
       uses: marvinpinto/action-automatic-releases@latest
       with:
@@ -41,3 +45,4 @@ jobs:
         prerelease: true
         title: "Windows Development Build"
         files: win64/target/sqlite-amalgamation/sqlite3session.dll
+        
