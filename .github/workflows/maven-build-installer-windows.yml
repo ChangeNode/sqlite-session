@@ -27,16 +27,16 @@ jobs:
     - name: Setup Visual C++ Compiler
       uses: ilammy/msvc-dev-cmd@v1
     - name: Copy build file
-      run: cp win64\build2.bat win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\build2.bat
+      run: cp win64\build2.bat win64\target\sqlite-amalgamation\sqlite-amalgamation-3410200\build2.bat
     - name: Run build file
       shell: cmd
-      run: cd win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\
+      run: cd win64\target\sqlite-amalgamation\sqlite-amalgamation-3410200\
     - name: Run build file
       shell: cmd
       run: dir
     - name: Run build file
       shell: cmd
-      run: win64\target\sqlite-amalgamation\sqlite-amalgamation-3380200\build2.bat
+      run: win64\target\sqlite-amalgamation\sqlite-amalgamation-3410200\build2.bat
     - name: Update Automatic Release
       uses: marvinpinto/action-automatic-releases@latest
       with:
@@ -44,5 +44,5 @@ jobs:
         automatic_release_tag: "Windows-latest"
         prerelease: true
         title: "Windows Development Build"
-        files: win64/target/sqlite-amalgamation/sqlite-amalgamation-3380200/sqlite3session.dll
+        files: win64/target/sqlite-amalgamation/sqlite-amalgamation-3410200/sqlite3session.dll
         
